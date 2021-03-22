@@ -1,7 +1,10 @@
 code {
   background: #d0d0d5;
 }
-
+body {
+  background: rgb(8, 8, 80);
+  color: white;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -13,8 +16,15 @@ code {
 
 textarea {
   width: 100%;
-}
+  background: rgb(8, 8, 80);
+  color: white;
 
+}
+#solve-button, #check-button {
+ background: rgb(8, 8, 80);
+ color: white;
+ border-radius: 5px;
+}
 #user-stories {
   font-size: 1.2em;
 }
@@ -29,11 +39,13 @@ textarea {
   margin-left: 20px;
   text-align: center;
   display: inline;
+ 
 }
 
 .grid {
   border: 3px solid;
   border-spacing: 0;
+  
 }
 
 td {
@@ -42,7 +54,7 @@ td {
 }
 
 .sudoku-input {
-  border: 1px solid black;
+  border: 1px solid white;
   width: 2em;
   height: 2em;
   text-align: center;
