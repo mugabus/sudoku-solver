@@ -4,6 +4,7 @@ code {
 body {
   background: rgb(8, 8, 80);
   color: white;
+  font-family: "Lucida Console";
 }
 .container {
   display: flex;
@@ -24,6 +25,7 @@ textarea {
  background: rgb(8, 8, 80);
  color: white;
  border-radius: 5px;
+ font-family: "Lucida Console";
 }
 #user-stories {
   font-size: 1.2em;
