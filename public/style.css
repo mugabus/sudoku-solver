@@ -1,47 +1,66 @@
+@import "https://fonts.googleapis.com/css?family=Share+Tech+Mono";
+
 code {
   background: #d0d0d5;
 }
 body {
   background: rgb(8, 8, 80);
   color: white;
-  font-family: "Lucida Console";
+  font-family: Share Tech Mono, monospace;
 }
 .container {
   display: flex;
   flex-direction: column;
+
 }
 
 .form-container {
   max-width: 95%;
+  font-family: Share Tech Mono, monospace;
 }
 
 textarea {
   width: 100%;
   background: rgb(8, 8, 80);
   color: white;
+  font-family: Share Tech Mono, monospace;
 
 }
 #solve-button, #check-button {
  background: rgb(8, 8, 80);
  color: white;
  border-radius: 5px;
- font-family: "Lucida Console";
+font-family: Share Tech Mono, monospace;
 }
 #user-stories {
   font-size: 1.2em;
 }
 
+.checker {
+  background:rgba(16, 16, 109, 0.349);
+  color: white;
+  font-family: Share Tech Mono, monospace;
+}
 #error-msg {
   color: red;
   display: inline;
   margin-left: 10px;
+  font-family: Share Tech Mono, monospace;
 }
-
+#error{
+  color: red;
+  display: inline;
+  margin-left: 10px;
+  
+  font-size: 14px;
+  font-family: Share Tech Mono, monospace;
+}
 #sudoku-grid {
+  
   margin-left: 20px;
   text-align: center;
   display: inline;
- 
+ font-family: Share Tech Mono, monospace;
 }
 
 .grid {
