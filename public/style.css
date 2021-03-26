@@ -1,9 +1,17 @@
-code {
-  background: #d0d0d5;
+@import "https://fonts.googleapis.com/css?family=Share+Tech+Mono";
+
+:root {
+  --main-bg-color: white;
+  --main-text-color: rgb(22, 31, 129);
 }
-body {
-  background: rgb(8, 8, 80);
-  color: white;
+
+code {
+  background: #f2f2f7;
+}
+body{
+  font-family: Share Tech Mono, monospace;
+  background: var(--main-bg-color);
+  color: var(--main-text-color) ;
 }
 .container {
   display: flex;
@@ -12,52 +20,96 @@ body {
 
 .form-container {
   max-width: 95%;
+  align-self: flex-start;
 }
 
 textarea {
   width: 100%;
-  background: rgb(8, 8, 80);
-  color: white;
+  font-family: Share Tech Mono, monospace;
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+  border-radius: 5px;
+  border: 2px var(--main-text-color) solid;
+  font-size: 14px;
+  }
 
-}
-#solve-button, #check-button {
- background: rgb(8, 8, 80);
- color: white;
- border-radius: 5px;
-}
 #user-stories {
   font-size: 1.2em;
 }
-
+#solve-button, #check-button {
+ background: var(--main-bg-color);
+ color: var(--main-text-color);
+ border-radius: 5px;
+font-family: Share Tech Mono, monospace;
+}
 #error-msg {
   color: red;
   display: inline;
   margin-left: 10px;
 }
 
-#sudoku-grid {
+#sudoku-grid-container {
+  display: flex;
+  flex-direction: row;
   margin-left: 20px;
+  color: var(--main-text-color);
+}
+
+#sudoku-grid {
   text-align: center;
   display: inline;
- 
+  color: var(--main-text-color);
 }
 
 .grid {
   border: 3px solid;
   border-spacing: 0;
-  
+  color: var(--main-text-color);
 }
 
 td {
   border: 1px solid;
   padding: 0.3em;
+  color: var(--main-text-color);
 }
 
-.sudoku-input {
-  border: 1px solid white;
+.yAxisLegend {
+  margin-top: 50px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.yAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
+  width: 2em;
+  height: 1.95em;
+}
+
+.xAxisLegend {
+  border: 3px solid rgba(0,0,0,0);
+  border-spacing: 0;
+  font-weight: bold;
+}
+
+.xAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
   width: 2em;
   height: 2em;
   text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 0;
+}
+
+.xAxisLegend tr td:nth-of-type(3n) {
+  border-right: 3px solid rgba(0,0,0,0);
+}
+
+.sudoku-input {
+  border: 1px solid var(--main-text-color);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  
 }
 
 .C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .F1, .F2, .F3, .F4, .F5, .F6, .F7, .F8, .F9 {
@@ -74,6 +126,6 @@ td {
   }
 
   .form-container {
-    align-self: flex-end;
+    align-self: center;
   }
 }
