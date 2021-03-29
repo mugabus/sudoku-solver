@@ -1,4 +1,7 @@
-# [Sudoku Solver](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/sudoku-solver)
+# [Sudoku Solver Freecodecamp Project](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/sudoku-solver)
+![My preview](https://lh3.googleusercontent.com/2C5PPzqclDobaPnoNQZBhqV80Ws2exG6V0PT_IxTTrDzveKDzmDCcyT9TnTyVrGRUtGwt_s2bfsj1bLQqCR2UNdnN9UrHjYwx4fOuTqxQ1lI0oi8A-V3jQOkrfWzvdr5XDBPXHA2QQ=w2400)
+You can find my solution here: https://boilerplate-project-sudoku-solver.alevanni.repl.co/
+
 All puzzle logic can go into /controllers/sudoku-solver.js
 The validate function should take a given puzzle string and check it to see if it has 81 valid characters for the input.
 The check functions should be validating against the current state of the board.
