@@ -27,6 +27,9 @@ class SudokuSolver {
     if (rowArray.indexOf(value) == -1 && rowArray[column-1] == ".") {
        return true;
     } 
+    else if (rowArray[column-1] == value) { //we already have that value there
+      return true;
+    }
     else return false;    
     
   }
@@ -36,8 +39,11 @@ class SudokuSolver {
     var rowNumber = rows.indexOf(row) ;
     column = parseInt(column) - 1;
     var columnArray = ""; //it's actually a string
+    if (puzzleString[rowNumber*9 + column ] == value ){//we already have that value there
+       return true;
+    }
     //is the position free?
-    if(puzzleString[rowNumber*9 + column ] != ".") { //the place is already taken
+    else if(puzzleString[rowNumber*9 + column ] != ".") { //the place is already taken
        return false;
     }
     for (var i=0; i<9; i++) {
@@ -57,7 +63,10 @@ class SudokuSolver {
     var regionArray = ""; // it's actually a string
     var regX = Math.floor(rowNumber/3)*3;
     var regY = Math.floor(column/3)*3;
-    if(puzzleString[rowNumber*9 + column ] != ".") { //the place is already taken
+    if (puzzleString[rowNumber*9 + column ] == value){//we already have that value there
+        return true;
+    }
+    else if(puzzleString[rowNumber*9 + column ] != ".") { //the place is already taken
         return false;
     }
     regionArray= regionArray + puzzleString[ 9*regX + regY ] + puzzleString[ 9*regX + regY + 1 ] + puzzleString[ 9*regX + regY + 2]
