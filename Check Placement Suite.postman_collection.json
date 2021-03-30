@@ -1,0 +1,564 @@
+{
+	"info": {
+		"_postman_id": "784a3aad-1d06-4ada-967d-4c453495b0ca",
+		"name": "Check Placement Suite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check a puzzle placement with all fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"valid\");\r",
+							"    pm.expect(my_json.valid).to.be.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "A1",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with single placement conflict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"valid\");\r",
+							"    pm.expect(my_json.valid).to.be.eql(false);\r",
+							"    pm.expect(my_json).to.have.property(\"conflict\");\r",
+							"    pm.expect(my_json.conflict).to.be.eql([\"column\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "A1",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with multiple placement conflicts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"valid\");\r",
+							"    pm.expect(my_json.valid).to.be.eql(false);\r",
+							"    pm.expect(my_json).to.have.property(\"conflict\");\r",
+							"    pm.expect(my_json.conflict).to.be.eql([\"row\", \"region\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "E5",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with all placement conflicts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"valid\");\r",
+							"    pm.expect(my_json.valid).to.be.eql(false);\r",
+							"    pm.expect(my_json).to.have.property(\"conflict\");\r",
+							"    pm.expect(my_json.conflict).to.be.eql([\"row\",\"column\", \"region\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "E5",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with missing required fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"error\");\r",
+							"    pm.expect(my_json.error).to.be.eql(\"Required field(s) missing\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with invalid characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"error\");\r",
+							"    pm.expect(my_json.error).to.be.eql(\"Invalid characters in puzzle\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2N32......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "E5",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with incorrect length",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"error\");\r",
+							"    pm.expect(my_json.error).to.be.eql(\"Expected puzzle to be 81 characters long\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6.....",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "E5",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with invalid placement coordinate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"error\");\r",
+							"    pm.expect(my_json.error).to.be.eql(\"Invalid coordinate\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "U10",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check a puzzle placement with invalid placement value",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var my_json = pm.response.json();\r",
+							"    pm.expect(my_json).to.have.property(\"error\");\r",
+							"    pm.expect(my_json.error).to.be.eql(\"Invalid value\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "puzzle",
+							"value": "..9..5.1.85.4....2432......1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..",
+							"type": "text"
+						},
+						{
+							"key": "coordinate",
+							"value": "E5",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "o",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boilerplate-project-sudoku-solver.alevanni.repl.co/api/check",
+					"protocol": "https",
+					"host": [
+						"boilerplate-project-sudoku-solver",
+						"alevanni",
+						"repl",
+						"co"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
