@@ -11,6 +11,9 @@ Pass to glitch, it will be probably better.
 - See the puzzle-strings.js file in /controllers for some sample puzzles your application should solve
 - To run the challenge tests on this page, set NODE_ENV to test without quotes in the .env file
 - To run the tests in the console, use the command npm run test. To open the Repl.it console, press Ctrl+Shift+P (Cmd if on a Mac) and type "open shell"
+- A very basic template for the manual test cases is in the file /tests/myTestCaseTemplate.ods. 
+- Postman functional tests are in the files /tests/Solve Suite.postman_collection and /tests/Check Placement Suite.postman_collection.
+
 
 Write the following tests in tests/1_unit-tests.js:
 
